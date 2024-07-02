@@ -9,7 +9,6 @@ import ParticlesContainer from "./ProjectsContainer";
 const HeroSection = () => {
   return (
     <section className="lg:py-16">
-      
       <div className="grid grid-cols-1 sm:grid-cols-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -21,7 +20,7 @@ const HeroSection = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
               Hello, I&apos;m{" "}
             </span>
-            <br></br>
+            <br />
             <TypeAnimation
               sequence={[
                 "Sajib",
@@ -37,7 +36,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            I'm a MERN stack developer specializing in MongoDB, Express.js,
+            I&apos;m a MERN stack developer specializing in MongoDB, Express.js,
             React, and Node.js. I create dynamic web applications that combine
             clean code with intuitive design for seamless user experiences.
             Explore my portfolio to see my work in action
@@ -50,7 +49,7 @@ const HeroSection = () => {
               Hire Me
             </Link>
             <Link
-            target="_blank"
+              target="_blank"
               href="https://1drv.ms/w/c/7daea04c5d9a7b76/EewiWdNvlZNEmUrRrIGvjjEBX8z5VmS9Z4PUC9iivDolig?e=FJntYy"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
             >
@@ -69,7 +68,7 @@ const HeroSection = () => {
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <Image
               src="/sajib1.png"
-              alt="hero image"
+              alt="Sajib Hossen"
               className="absolute rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               width={300}
               height={300}
