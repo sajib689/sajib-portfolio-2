@@ -9,7 +9,7 @@ const projectsData = [
     id: 1,
     title: "ScholarHub Website",
     description:
-      "This is a ScholarHub website.Here user can choice his or her scholarships.User can manage his or her applications.Also add admin and moderator roles.Admin can manage all users but the moderator can't without manage users moderator can manage everything like application approve etc.",
+      "1. Users can apply for specific scholarships from the website 2.This website has three roles one for normal users an admin, moderator 3.Moderators have permission to manage this website without managing users.",
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/sajib689/assignment-12-b9",
@@ -19,7 +19,7 @@ const projectsData = [
     id: 2,
     title: "TouristaTrek Website",
     description:
-      "Users can visit his or her favorites spots using this website.If any users want to add any spots the users can add.",
+      "1. Allows users to add and find information on tourist spots 2.Provides comprehensive details on various tourist destinations 3.Users can book any tourist spots from this website.",
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/sajib689/assignment-ten-client-b9.git",
@@ -28,7 +28,7 @@ const projectsData = [
   {
     id: 3,
     title: "FoodHub Website",
-    description: "This is a food hub website.Here users can add food and any users can collect from anywhere.It helps poor people because here users add his extra food.",
+    description: "1.A platform where people can donate extra food for those in need 2.Users can easily find and collect food from specified locations 3.Users can manage his/her food.",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/sajib689/assignment-eleven-client-b9.git",
@@ -37,7 +37,7 @@ const projectsData = [
   {
     id: 4,
     title: "Sajib Industrail Website",
-    description: "This website contains information about Industries.",
+    description: "1. A website where users can book industrial projects 2.Streamlines the process of finding and securing industrial work 3.Easily navigate through different sections of the website, including Home, About Us",
     image: "/images/projects/4.png",
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com/sajib689/assignment-nine-client-b9.git",
@@ -115,7 +115,7 @@ const ProjectsSection = () => {
             <ProjectCard
               key={project.id}
               title={project.title}
-              description={project.description.slice(0, 100) + "..."}
+              description={project.description}
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
