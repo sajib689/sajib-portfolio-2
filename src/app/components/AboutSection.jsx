@@ -8,11 +8,20 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-2 flex gap-8">
+       <div>
+       <li>HTML</li>
+       <li>CSS</li>
+       <li>Tailwind CSS</li>
+       <li>JavaScript</li>
+       </div>
+       <div>
+       
+        <li>React</li>
         <li>Node.js</li>
         <li>Express</li>
-        <li>JavaScript</li>
-        <li>React</li>
+        <li>MongoDB</li>
+       </div>
       </ul>
     ),
   },

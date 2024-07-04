@@ -36,10 +36,10 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            I&apos;m a MERN stack developer specializing in MongoDB, Express.js,
+            I&apos;m a Frontend developer specializing in MongoDB, Express.js,
             React, and Node.js. I create dynamic web applications that combine
             clean code with intuitive design for seamless user experiences.
-            Explore my portfolio to see my work in action
+            Explore my portfolio to see my work in action.
           </p>
           <div>
             <Link
@@ -50,7 +50,7 @@ const HeroSection = () => {
             </Link>
             <Link
               target="_blank"
-              href="https://1drv.ms/w/c/7daea04c5d9a7b76/EewiWdNvlZNEmUrRrIGvjjEBX8z5VmS9Z4PUC9iivDolig?e=FJntYy"
+              href="https://drive.google.com/file/d/1oQ-hGbpV-KCFBGLK1hyouzA_wnWzOcRb/view?usp=sharing"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
