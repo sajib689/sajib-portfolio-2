@@ -1,19 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Box, TextField, Button, Typography, Container, Paper } from '@mui/material';
+import { AuthContext } from '@/context/AuthProvider';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+  const {login} = useContext(AuthContext)
+  // const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!email || !password) {
       setError('Email and Password are required');
       return;
     }
+    login(email,password)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
     setError('');
     console.log('Logging in with:', { email, password });
   };

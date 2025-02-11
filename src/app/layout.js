@@ -1,3 +1,4 @@
+import AuthProvider from '@/context/AuthProvider'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import './globals.css'
@@ -13,6 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <AuthProvider>
       <body className={inter.className}>
         <Navbar/>
         <div className='flex min-h-screen flex-col bg-[#121212]'>
@@ -20,6 +22,8 @@ export default function RootLayout({ children }) {
         </div>
         <Footer/>
         </body>
+      </AuthProvider>
+
     </html>
   )
 }
