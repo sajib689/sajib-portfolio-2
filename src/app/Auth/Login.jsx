@@ -49,9 +49,19 @@ const Login = () => {
             InputProps={{ style: { color: '#fff' } }}
             sx={{ input: { color: '#fff' }, label: { color: '#ccc' }, '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: '#555' }, '&:hover fieldset': { borderColor: '#777' } } }}
           />
-          <Button variant="contained" color="primary" type="submit" sx={{ padding: '10px', fontSize: '16px' }}>
-            Login
-          </Button>
+          <Button 
+  variant="contained"  
+  type="submit" 
+  sx={{ 
+    p: 2, 
+    fontSize: '16px', 
+    bgcolor: '#ff9ff3', 
+    '&:hover': { bgcolor: '#f368e0' }
+  }}
+>
+  Login
+</Button>
+
         </Box>
       </Paper>
     </Container>
