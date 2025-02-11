@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
+import { AuthContext } from '@/context/AuthProvider';
 
 const navLinks = [
   {
@@ -64,7 +65,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-
+  const {user} = useContext(AuthContext)
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
@@ -98,12 +99,26 @@ const Navbar = () => {
       <NavLink href={link.path} title={link.title} icon={link.icon} />
     </li>
   ))}
- <li> <Link
+  {
+    user? 
+    <>
+    <li> <button
+    className="text-white border px-4 py-2 rounded-md border-white hover:bg-[#ff9ff3] hover:text-black transition"
+  >
+    Logout
+  </button></li>
+    </>
+    :
+    <>
+    <li> <Link
     href="/login"
     className="text-white border px-4 py-2 rounded-md border-white hover:bg-[#ff9ff3] hover:text-black transition"
   >
     Login
   </Link></li>
+    </>
+  }
+ 
 </ul>
 
         </div>

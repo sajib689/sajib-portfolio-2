@@ -1,6 +1,6 @@
 'use client';
 
-import { useContext, useState } from 'react';
+import { useContext, useState,useNavigate } from 'react';
 import { Box, TextField, Button, Typography, Container, Paper } from '@mui/material';
 import { AuthContext } from '@/context/AuthProvider';
 
@@ -9,7 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const {login} = useContext(AuthContext)
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!email || !password) {
@@ -19,6 +19,7 @@ const Login = () => {
     login(email,password)
     .then(res => {
       console.log(res)
+      navigate('/dashboard')
     })
     .catch(err => {
       console.log(err)
