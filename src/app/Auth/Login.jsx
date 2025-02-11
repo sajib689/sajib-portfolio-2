@@ -21,7 +21,7 @@ const Login = () => {
   return (
     <Container maxWidth="md" sx={{ backgroundColor: '#121212', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Paper elevation={3} sx={{ padding: 6, textAlign: 'center', backgroundColor: '#1e1e1e', color: '#fff', width: '100%', maxWidth: '500px' }}>
-        <Typography variant="h5" gutterBottom>
+        <Typography sx={{marginBottom: "25px"}} variant="h5" gutterBottom>
          Admin Login
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
