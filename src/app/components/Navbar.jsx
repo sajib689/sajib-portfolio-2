@@ -115,7 +115,20 @@ const Navbar = () => {
     </li>
   ))}
 </ul>
-
+<li>
+     <span><svg
+      stroke="currentColor"
+      fill="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 512 512"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+    >
+      <path d="M192 128c0-17.7 14.3-32 32-32h128c17.7 0 32 14.3 32 32v256c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32v-64h-32v64c0 35.3 28.7 64 64 64h128c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H224c-35.3 0-64 28.7-64 64v64h32v-64zM352 272H160v32h192v-32zM273 216.1l39-39c6.3-6.3 6.3-16.4 0-22.6-6.3-6.3-16.4-6.3-22.6 0l-67 67c-6.3 6.3-6.3 16.4 0 22.6l67 67c6.3 6.3 16.4 6.3 22.6 0 6.3-6.3 6.3-16.4 0-22.6l-39-39H352v-32H273z"></path>
+    </svg></span> <NavLink className="button-3d px-6 py-2 rounded-full bg-[#ff9ff3] text-white font-semibold hover:shadow-lg" href='/login' /> 
+    </li>
         </div>
       </div>
       {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
