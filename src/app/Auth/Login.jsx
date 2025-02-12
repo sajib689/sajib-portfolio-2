@@ -10,29 +10,32 @@ import {
   Paper,
 } from "@mui/material";
 import { AuthContext } from "@/context/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation"; // ✅ Correct import
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { login } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const router = useRouter(); // ✅ Correct variable name
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!email || !password) {
       setError("Email and Password are required");
       return;
     }
+
     login(email, password)
       .then((res) => {
         console.log(res);
-        navigate("/dashboard");
+        router.push("/dashboard"); // ✅ Correct way to navigate
       })
       .catch((err) => {
-        console.log(err);
+        console.error("Login Error:", err);
+        setError("Invalid email or password");
       });
-    setError("");
+
     console.log("Logging in with:", { email, password });
   };
 
@@ -73,7 +76,7 @@ const Login = () => {
             fullWidth
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            error={!!error}
+            error={!!error && !email}
             helperText={error && !email ? "Email is required" : ""}
             InputProps={{ style: { color: "#fff" } }}
             sx={{
@@ -92,7 +95,7 @@ const Login = () => {
             fullWidth
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            error={!!error}
+            error={!!error && !password}
             helperText={error && !password ? "Password is required" : ""}
             InputProps={{ style: { color: "#fff" } }}
             sx={{
@@ -104,6 +107,11 @@ const Login = () => {
               },
             }}
           />
+          {error && (
+            <Typography color="error" variant="body2">
+              {error}
+            </Typography>
+          )}
           <Button
             variant="contained"
             type="submit"
