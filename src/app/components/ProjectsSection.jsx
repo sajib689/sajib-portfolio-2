@@ -1,125 +1,132 @@
 "use client";
-import React, { useState, useRef } from "react";
-import ProjectCard from "./ProjectCard";
-import ProjectTag from "./ProjectTag";
+
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projectsData = [
   {
     id: 1,
     title: "ScholarHub Website",
     description:
-      "1. Users can apply for specific scholarships from the website 2.This website has three roles one for normal users an admin, moderator 3.Moderators have permission to manage this website without managing users.",
+      "1. Users can apply for specific scholarships from the website 2. This website has three roles: normal users, an admin, and a moderator. 3. Moderators have permission to manage this website without managing users.",
     image: "/images/projects/1.png",
-    tag: ["All", "Web"],
     gitUrl: "https://github.com/sajib689/assignment-12-b9",
     previewUrl: "https://benevolent-hamster-c76181.netlify.app/",
+    techStack: ["React", "Firebase", "TailwindCSS"],
   },
   {
     id: 2,
     title: "TouristaTrek Website",
     description:
-      "1. Allows users to add and find information on tourist spots 2.Provides comprehensive details on various tourist destinations 3.Users can book any tourist spots from this website.",
+      "1. Allows users to add and find information on tourist spots. 2. Provides comprehensive details on various tourist destinations. 3. Users can book any tourist spots from this website.",
     image: "/images/projects/2.png",
-    tag: ["All", "Web"],
     gitUrl: "https://github.com/sajib689/assignment-ten-client-b9.git",
     previewUrl: "https://inspiring-sprinkles-18cc70.netlify.app/",
+    techStack: ["React", "Firebase", "TailwindCSS"],
   },
   {
     id: 3,
     title: "FoodHub Website",
-    description: "1.A platform where people can donate extra food for those in need 2.Users can easily find and collect food from specified locations 3.Users can manage his/her food.",
+    description:
+      "1. A platform where people can donate extra food for those in need. 2. Users can easily find and collect food from specified locations. 3. Users can manage their food donations.",
     image: "/images/projects/3.png",
-    tag: ["All", "Web"],
     gitUrl: "https://github.com/sajib689/assignment-eleven-client-b9.git",
     previewUrl: "https://lighthearted-panda-b35522.netlify.app/",
+    techStack: ["React", "Firebase", "TailwindCSS"],
   },
   {
     id: 4,
-    title: "Sajib Industrail Website",
-    description: "1. A website where users can book industrial projects 2.Streamlines the process of finding and securing industrial work 3.Easily navigate through different sections of the website, including Home, About Us",
+    title: "Sajib Industrial Website",
+    description:
+      "1. A website where users can book industrial projects. 2. Streamlines the process of finding and securing industrial work. 3. Easily navigate through different sections, including Home, About Us.",
     image: "/images/projects/4.png",
-    tag: ["All", "Mobile"],
     gitUrl: "https://github.com/sajib689/assignment-nine-client-b9.git",
-    previewUrl: "https://661a8413740ddc95aede1b00--aquamarine-pasca-e8492a.netlify.app/",
+    previewUrl:
+      "https://661a8413740ddc95aede1b00--aquamarine-pasca-e8492a.netlify.app/",
+    techStack: ["React", "Firebase", "TailwindCSS"],
   },
-  // {
-  //   id: 5,
-  //   title: "React Firebase Template",
-  //   description: "Authentication and CRUD operations",
-  //   image: "/images/projects/5.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Full-stack Roadmap",
-  //   description: "Project 5 description",
-  //   image: "/images/projects/6.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
 ];
 
-const ProjectsSection = () => {
-  const [tag, setTag] = useState("All");
+const ServiceSphereCard = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
-  };
-
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
-
   const cardVariants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
+    initial: { y: 50, opacity: 0, scale: 0.95 },
+    animate: { y: 0, opacity: 1, scale: 1 },
   };
 
   return (
-    <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
+    <section id="projects" className="py-10">
+      {/* Title Section */}
+      <h2 className="text-4xl font-bold text-white text-center mb-8">
+        Featured Projects
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
-        />
-      </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project, index) => (
+      <p className="text-gray-400 text-sm mt-2">
+        Explore some of my recent projects that showcase my expertise in web
+        development and problem-solving abilities.
+      </p>
+      {/* Project Cards */}
+      <ul
+        ref={ref}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+      >
+        {projectsData.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.4, delay: index * 0.2 }}
           >
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
-            />
+            <div className="bg-[#18181B] p-6 rounded-xl shadow-lg max-w-sm mx-auto">
+              <img
+                src={project.image}
+                alt={`Preview of ${project.title}`}
+                className="w-full h-40 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+              <p className="text-gray-400 text-sm mt-2">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {project.techStack.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="bg-gray-700 text-white text-xs px-3 py-1 rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="flex justify-between items-center mt-6">
+                <a
+                  href={project.previewUrl}
+                  className="bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium"
+                >
+                  View Details
+                </a>
+                <div className="flex gap-3">
+                  <a
+                    href={project.gitUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub repository"
+                  >
+                    <FaGithub className="text-white text-lg cursor-pointer" />
+                  </a>
+                  <a
+                    href={project.previewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Live project preview"
+                  >
+                    <FaExternalLinkAlt className="text-white text-lg cursor-pointer" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </motion.li>
         ))}
       </ul>
@@ -127,4 +134,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export default ServiceSphereCard;
