@@ -93,7 +93,7 @@ const Navbar = () => {
           )}
         </div>
         <div className="menu hidden md:block md:w-auto" id="navbar">
-        <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+        <ul className="flex justify-center items-center p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
   {navLinks.map((link, index) => (
     <li key={index}>
       <NavLink href={link.path} title={link.title} icon={link.icon} />
@@ -101,22 +101,22 @@ const Navbar = () => {
   ))}
   {
     user? 
-    <>
+    
     <li> <button
     className="text-white border px-4 py-2 rounded-md border-white hover:bg-[#ff9ff3] hover:text-black transition"
   >
     Logout
   </button></li>
-    </>
+   
     :
-    <>
+  
     <li> <Link
     href="/login"
     className="text-white border px-4 py-2 rounded-md border-white hover:bg-[#ff9ff3] hover:text-black transition"
   >
     Login
   </Link></li>
-    </>
+  
   }
  
 </ul>
