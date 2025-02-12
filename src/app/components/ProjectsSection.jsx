@@ -61,70 +61,55 @@ const ServiceSphereCard = () => {
     <section id="projects" className="py-10 mt-10">
       {/* Title Section */}
       <div className="text-center mb-5">
-      <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600 text-center mb-8">
-        Featured Projects
-      </h2>
-      <p className="text-gray-400 text-sm mt-2 mb-5">
-        Explore some of my recent projects that showcase my expertise in web
-       <br/> development and problem-solving abilities.
-      </p>
+        <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600 text-center mb-8">
+          Featured Projects
+        </h2>
+        <p className="text-gray-400 text-sm mt-2 mb-5">
+          Explore some of my recent projects that showcase my expertise in web
+          <br /> development and problem-solving abilities.
+        </p>
       </div>
-      
+
       {/* Project Cards */}
-      <ul
-        ref={ref}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-      >
+      <ul ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {projectsData.map((project, index) => (
           <motion.li
-            key={project.id}
+            key={project?.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 0.4, delay: index * 0.2 }}
           >
-            <div className="bg-[#18181B] p-6 rounded-xl shadow-lg max-w-sm mx-auto">
-              <img
-                src={project.image}
-                alt={`Preview of ${project.title}`}
-                className="w-full h-40 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-              <p className="text-gray-400 text-sm mt-2">
-                {project.description}
-              </p>
+            <div className="group bg-[#18181B] p-6 rounded-xl shadow-lg max-w-sm mx-auto">
+              {/* Image Wrapper with Scrolling Effect */}
+              <div className="relative overflow-hidden h-40 rounded-lg">
+                <img
+                  src={project?.image}
+                  alt={`Preview of ${project.title}`}
+                  className="absolute top-0 w-full object-cover h-auto transition-transform duration-500 ease-in-out group-hover:-translate-y-1/2"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-white mt-4">{project.title}</h3>
+              <p className="text-gray-400 text-sm mt-2">{project?.description}</p>
               <div className="flex flex-wrap gap-2 mt-4">
-                {project.techStack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-gray-700 text-white text-xs px-3 py-1 rounded-full"
-                  >
+                {project?.techStack.map((tech, i) => (
+                  <span key={i} className="bg-gray-700 text-white text-xs px-3 py-1 rounded-full">
                     {tech}
                   </span>
                 ))}
               </div>
               <div className="flex justify-between items-center mt-6">
                 <a
-                  href={project.previewUrl}
+                  href={project?.previewUrl}
                   className="bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white px-4 py-2 rounded-full text-sm font-medium"
                 >
                   View Details
                 </a>
                 <div className="flex gap-3">
-                  <a
-                    href={project.gitUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub repository"
-                  >
+                  <a href={project.gitUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
                     <FaGithub className="text-white text-lg cursor-pointer" />
                   </a>
-                  <a
-                    href={project.previewUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Live project preview"
-                  >
+                  <a href={project.previewUrl} target="_blank" rel="noopener noreferrer" aria-label="Live project preview">
                     <FaExternalLinkAlt className="text-white text-lg cursor-pointer" />
                   </a>
                 </div>
