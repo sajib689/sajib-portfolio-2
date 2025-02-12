@@ -2,6 +2,7 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
+import { motion } from 'framer-motion';
 
 const TAB_DATA = [
   {
@@ -59,7 +60,29 @@ const AboutSection = () => {
   return (
     <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/sajib1.png" alt="" width={500} height={500} />
+      <div className="relative w-[500px] h-[500px]">
+  {/* Background Gradient Motion */}
+  <motion.div
+    className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500"
+    animate={{
+      backgroundPosition: ["0% 0%", "100% 100%"],
+    }}
+    transition={{
+      repeat: Infinity,
+      duration: 5,
+      ease: "linear",
+    }}
+  />
+
+  {/* Image */}
+  <Image
+    src="/sajib1.png"
+    className="absolute top-0 left-0 w-full h-full object-cover"
+    alt="Sajib Hossen"
+    width={500}
+    height={500}
+  />
+</div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
