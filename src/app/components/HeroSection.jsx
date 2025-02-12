@@ -44,13 +44,23 @@ const HeroSection = () => {
             clean code with intuitive design for seamless user experiences.
             Explore my portfolio to see my work in action.
           </p>
-          <div className="flex gap-3 ms-3">
-          <FaFacebook className="hover:text-[#ff9ff3] cursor-pointer" size={30} color="white" />
-          <FaGithub className="hover:text-[#ff9ff3] cursor-pointer" size={30} color="white"/>
-          <FaTwitter className="hover:text-[#ff9ff3] cursor-pointer" size={30} color="white"/>
-          <FaLinkedin className="hover:text-[#ff9ff3 cursor-pointer]" size={30} color="white"/>
+          <div className="flex gap-5 ms-3">
+  <Link href="https://web.facebook.com/md.sajib.hossen.12671/">
+    <FaFacebook className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:rotate-6" size={30} />
+  </Link>
+  <Link href="https://github.com/sajib689">
+    <FaGithub className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:-rotate-6" size={30} />
+  </Link>
+  <Link href="https://x.com/SajibJashore">
+    <FaTwitter className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:rotate-6" size={30} />
+  </Link>
+  <Link href="https://www.linkedin.com/in/sajib-babu/">
+    <FaLinkedin className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:-rotate-6" size={30} />
+  </Link>
+</div>
 
-            </div>
+
+
           <div>
             <Link
               href="/#contact"
