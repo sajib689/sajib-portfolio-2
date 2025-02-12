@@ -58,15 +58,18 @@ const ServiceSphereCard = () => {
   };
 
   return (
-    <section id="projects" className="py-10">
+    <section id="projects" className="py-10 mt-10">
       {/* Title Section */}
-      <h2 className="text-4xl font-bold text-white text-center mb-8">
+      <div className="text-center mb-5">
+      <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600 text-center mb-8">
         Featured Projects
       </h2>
-      <p className="text-gray-400 text-sm mt-2">
+      <p className="text-gray-400 text-sm mt-2 mb-5">
         Explore some of my recent projects that showcase my expertise in web
-        development and problem-solving abilities.
+       <br/> development and problem-solving abilities.
       </p>
+      </div>
+      
       {/* Project Cards */}
       <ul
         ref={ref}
@@ -103,7 +106,7 @@ const ServiceSphereCard = () => {
               <div className="flex justify-between items-center mt-6">
                 <a
                   href={project.previewUrl}
-                  className="bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium"
+                  className="bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white px-4 py-2 rounded-full text-sm font-medium"
                 >
                   View Details
                 </a>

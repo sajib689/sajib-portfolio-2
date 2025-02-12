@@ -67,7 +67,7 @@ const AboutSection = () => {
         <div className="relative w-[500px] h-[500px]">
           {/* Background Gradient Motion */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500"
+            className="absolute rounded inset-0 bg-gradient-to-r from-primary-500 to-secondary-500"
             animate={{
               backgroundPosition: ["0% 0%", "100% 100%"],
             }}
@@ -81,7 +81,7 @@ const AboutSection = () => {
           {/* Image */}
           <Image
             src="/sajib1.png"
-            className="absolute top-0 left-0 w-full h-full object-cover"
+            className="absolute  top-0 left-0 w-full h-full object-cover"
             alt="Sajib Hossen"
             width={500}
             height={500}
