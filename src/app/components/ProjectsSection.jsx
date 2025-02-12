@@ -39,7 +39,7 @@ const projectsData = [
     id: 4,
     title: "Sajib Industrial Website",
     description:
-      "1. A website where users can book industrial projects. 2. Streamlines the process of finding and securing industrial work. 3. Easily navigate through different sections, including Home, About Us.",
+      "1- A website where users can book industrial projects. 2. Streamlines the process of finding and securing industrial work. 3. Easily navigate through different sections, including Home, About Us.",
     image: "/images/projects/4.png",
     gitUrl: "https://github.com/sajib689/assignment-nine-client-b9.git",
     previewUrl:
