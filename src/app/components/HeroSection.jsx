@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ParticlesContainer from "./ProjectsContainer";
-import { FaFacebook,FaGithub,FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 
 const HeroSection = () => {
@@ -24,7 +24,7 @@ const HeroSection = () => {
             </span>
             <br />
             <TypeAnimation
-             className="text-[#ff9ff3]"
+              className="text-[#ff9ff3]"
               sequence={[
                 "Sajib Hossen",
                 1000,
@@ -45,21 +45,31 @@ const HeroSection = () => {
             Explore my portfolio to see my work in action.
           </p>
           <div className="flex gap-5 ms-3">
-  <Link href="https://web.facebook.com/md.sajib.hossen.12671/">
-    <FaFacebook className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:rotate-6" size={30} />
-  </Link>
-  <Link href="https://github.com/sajib689">
-    <FaGithub className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:-rotate-6" size={30} />
-  </Link>
-  <Link href="https://x.com/SajibJashore">
-    <FaTwitter className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:rotate-6" size={30} />
-  </Link>
-  <Link href="https://www.linkedin.com/in/sajib-babu/">
-    <FaLinkedin className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:-rotate-6" size={30} />
-  </Link>
-</div>
-
-
+            <Link href="https://web.facebook.com/md.sajib.hossen.12671/">
+              <FaFacebook
+                className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:rotate-6"
+                size={30}
+              />
+            </Link>
+            <Link href="https://github.com/sajib689">
+              <FaGithub
+                className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:-rotate-6"
+                size={30}
+              />
+            </Link>
+            <Link href="https://x.com/SajibJashore">
+              <FaTwitter
+                className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:rotate-6"
+                size={30}
+              />
+            </Link>
+            <Link href="https://www.linkedin.com/in/sajib-babu/">
+              <FaLinkedin
+                className="text-white hover:text-[#ff9ff3] cursor-pointer transition-transform duration-300 hover:scale-110 hover:-rotate-6"
+                size={30}
+              />
+            </Link>
+          </div>
 
           <div>
             <Link
@@ -85,11 +95,25 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+          <div className="relative w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden">
+            {/* Background Motion */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500"
+              animate={{
+                backgroundPosition: ["0% 0%", "100% 100%"],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 5,
+                ease: "linear",
+              }}
+            />
+
+            {/* Image with Zoom Effect on Hover */}
             <Image
               src="/sajib1.png"
               alt="Sajib Hossen"
-              className="absolute rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="absolute rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition-transform duration-300 ease-in-out hover:scale-110"
               width={300}
               height={300}
             />
