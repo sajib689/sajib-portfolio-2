@@ -5,6 +5,8 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ParticlesContainer from "./ProjectsContainer";
+import { FaFacebook,FaGithub,FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
 
 const HeroSection = () => {
   return (
@@ -16,14 +18,15 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-5xl lg:leading-normal font-extrabold">
+          <h1 className="text-white mb-2 text-4xl sm:text-6xl lg:text-6xl lg:leading-normal font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I&apos;m{" "}
+              Hello, I&apos;m
             </span>
             <br />
             <TypeAnimation
+             className="text-[#ff9ff3]"
               sequence={[
-                "Sajib",
+                "Sajib Hossen",
                 1000,
                 "Frontend Developer",
                 1000,
@@ -35,12 +38,19 @@ const HeroSection = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
+          <p className="text-[#ADB7BE] text-base sm:text-lg mb-4 lg:text-xl">
             I&apos;m a Frontend developer specializing in MongoDB, Express.js,
             React, and Node.js. I create dynamic web applications that combine
             clean code with intuitive design for seamless user experiences.
             Explore my portfolio to see my work in action.
           </p>
+          <div className="flex gap-3 ms-3">
+          <FaFacebook className="hover:text-[#ff9ff3] cursor-pointer" size={30} color="white" />
+          <FaGithub className="hover:text-[#ff9ff3] cursor-pointer" size={30} color="white"/>
+          <FaTwitter className="hover:text-[#ff9ff3] cursor-pointer" size={30} color="white"/>
+          <FaLinkedin className="hover:text-[#ff9ff3 cursor-pointer]" size={30} color="white"/>
+
+            </div>
           <div>
             <Link
               href="/#contact"
