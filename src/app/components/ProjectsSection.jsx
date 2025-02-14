@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -51,7 +51,7 @@ const projectsData = [
 const ServiceSphereCard = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
+ 
   const cardVariants = {
     initial: { y: 50, opacity: 0, scale: 0.95 },
     animate: { y: 0, opacity: 1, scale: 1 },
