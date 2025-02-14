@@ -1,7 +1,7 @@
 import connectionDb from "@/DB/ConnectDb";
 
 
-export default async function handler(req, res) {
+export default async function projectAddHandler(req, res) {
     try {
         const client = await connectionDb;
         const db = client.db("portfolio");
