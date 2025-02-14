@@ -20,11 +20,9 @@ const ProjectForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/route", {
+      const response = await fetch("/dashboard/api", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
           id: Number(formData.id),
@@ -32,17 +30,11 @@ const ProjectForm = () => {
         }),
       });
 
+      if (!response.ok) throw new Error("Failed to submit project");
+
       const result = await response.json();
       console.log("Success:", result);
-      setFormData({
-        id: "",
-        title: "",
-        description: "",
-        image: "",
-        gitUrl: "",
-        previewUrl: "",
-        techStack: "",
-      });
+      setFormData({ id: "", title: "", description: "", image: "", gitUrl: "", previewUrl: "", techStack: "" });
     } catch (error) {
       console.error("Error:", error);
     }
