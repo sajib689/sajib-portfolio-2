@@ -26,7 +26,7 @@ const ProjectForm = () => {
         body: JSON.stringify({
           ...formData,
           id: Number(formData.id),
-          techStack: formData.techStack.split(","), // Convert to array
+          techStack: formData.techStack.split(","),
         }),
       });
 

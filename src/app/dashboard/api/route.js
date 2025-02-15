@@ -1,9 +1,10 @@
 import ConnectDb from "@/DB/ConnectDb";
 import ProjectModel from "../ProjectModel";
 
+
 export async function POST(req) {
     try {
-        const body = await req.json(); // Get JSON body from request
+        const body = await req.json(); 
         const { id, title, description, image, gitUrl, previewUrl, techStack } = body;
 
         if (!id || !title || !description) {
@@ -39,3 +40,6 @@ export async function POST(req) {
         );
     }
 }
+
+
+
