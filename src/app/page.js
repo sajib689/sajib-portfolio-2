@@ -1,6 +1,6 @@
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
-import ProjectsSection from "./components/ProjectsSection";
+import ProjectsSection from "./dashboard/ProjectsSection";
 import EmailSection from "./components/EmailSection";
 import AchievementsSection from "./components/AchievementsSection";
 import AnimatedBackground from "@/Animation/AnimatedBackground";

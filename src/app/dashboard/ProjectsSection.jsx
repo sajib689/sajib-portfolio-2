@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef,useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -45,8 +45,8 @@ const projectsData = [
     previewUrl:
       "https://661a8413740ddc95aede1b00--aquamarine-pasca-e8492a.netlify.app/",
     techStack: ["React", "Firebase", "TailwindCSS"],
-  },
-];
+  }
+]
 
 const ServiceSphereCard = () => {
   const ref = useRef(null);
@@ -56,7 +56,32 @@ const ServiceSphereCard = () => {
     initial: { y: 50, opacity: 0, scale: 0.95 },
     animate: { y: 0, opacity: 1, scale: 1 },
   };
+  const [projects, setProjects] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null);    
+  console.log(projects)
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("/dashboard/projects"); 
+        console.log(response)
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+        const data = await response.json(); 
+        setProjects(data.projects);  
+        setLoading(false);       
+      } catch (error) {
+        setError(error.message); 
+        setLoading(false);      
+      }
+    };
 
+    fetchProjects();
+  }, []);
+
+  if (loading) return <div>Loading projects...</div>;
+  if (error) return <div>Error: {error}</div>;
   return (
     <section id="projects" className="py-10 mt-10">
       {/* Title Section */}
@@ -72,7 +97,7 @@ const ServiceSphereCard = () => {
 
       {/* Project Cards */}
       <ul ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {projectsData.map((project, index) => (
+        {projects.map((project, index) => (
           <motion.li
             key={project?.id}
             variants={cardVariants}
