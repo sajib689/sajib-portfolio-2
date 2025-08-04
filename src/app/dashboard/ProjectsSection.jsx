@@ -3,6 +3,7 @@
 import React, { useEffect, useRef,useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import Image from "next/image";
 
 const projectsData = [
   {
@@ -97,7 +98,7 @@ const ServiceSphereCard = () => {
 
       {/* Project Cards */}
       <ul ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {projects.map((project, index) => (
+        {projects?.map((project, index) => (
           <motion.li
             key={project?.id}
             variants={cardVariants}
@@ -108,13 +109,15 @@ const ServiceSphereCard = () => {
             <div className="group bg-[#18181B] p-6 rounded-xl shadow-lg max-w-sm mx-auto">
               {/* Image Wrapper with Scrolling Effect */}
               <div className="relative overflow-hidden h-40 rounded-lg">
-                <img
+                <Image
+                width={500}
+                height={300}
                   src={project?.image}
-                  alt={`Preview of ${project.title}`}
+                  alt={`Preview of ${project?.title}`}
                   className="absolute top-0 w-full object-cover h-auto transition-transform duration-500 ease-in-out group-hover:-translate-y-1/2"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-white mt-4">{project.title}</h3>
+              <h3 className="text-2xl font-bold text-white mt-4">{project?.title}</h3>
               <p className="text-gray-400 text-sm mt-2">{project?.description}</p>
               <div className="flex flex-wrap gap-2 mt-4">
                 {project?.techStack.map((tech, i) => (
@@ -131,10 +134,10 @@ const ServiceSphereCard = () => {
                   View Details
                 </a>
                 <div className="flex gap-3">
-                  <a href={project.gitUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                  <a href={project?.gitUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
                     <FaGithub className="text-white text-lg cursor-pointer" />
                   </a>
-                  <a href={project.previewUrl} target="_blank" rel="noopener noreferrer" aria-label="Live project preview">
+                  <a href={project?.previewUrl} target="_blank" rel="noopener noreferrer" aria-label="Live project preview">
                     <FaExternalLinkAlt className="text-white text-lg cursor-pointer" />
                   </a>
                 </div>
