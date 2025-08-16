@@ -61,25 +61,23 @@ const ServiceSphereCard = () => {
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);    
   console.log(projects)
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch("/dashboard/projects"); 
-        console.log(response)
-        if (!response.ok) {
-          throw new Error("Failed to fetch projects");
-        }
-        const data = await response.json(); 
-        setProjects(data.projects);  
-        setLoading(false);       
-      } catch (error) {
-        setError(error.message); 
-        setLoading(false);      
-      }
-    };
+useEffect(() => {
+  const fetchProjects = async () => {
+    try {
+      const response = await fetch("/dashboard/projects");
+      if (!response.ok) throw new Error("Failed to fetch projects");
+      const data = await response.json();
+      setProjects(data.projects);
+    } catch (error) {
+      console.error("Using fallback projects due to error:", error);
+      setProjects(projectsData); // fallback
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchProjects();
+}, []);
 
-    fetchProjects();
-  }, []);
 
   if (loading) return <div>Loading projects...</div>;
   if (error) return <div>Error: {error}</div>;
