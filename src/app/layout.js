@@ -14,16 +14,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <AuthProvider>
       <body className={inter.className}>
-        <Navbar/>
-        <div className='flex min-h-screen flex-col bg-[#121212]'>
-        {children}
-        </div>
-        <Footer/>
-        </body>
-      </AuthProvider>
-
+        <AuthProvider>
+          <Navbar />
+          <div className="flex min-h-screen flex-col bg-[#121212]">
+            {children}
+          </div>
+          <Footer />
+        </AuthProvider>
+      </body>
     </html>
-  )
+  );
 }
